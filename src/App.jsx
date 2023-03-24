@@ -1,9 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home, ForgotPassword, SignIn, SignUp, Offers, Profile } from "./pages";
-import { Header } from "./components";
+import { Header, PrivateRoute } from "./components";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-
 
 const App = () => {
     return (
@@ -12,7 +11,9 @@ const App = () => {
                 <Header />
                 <Routes>
                     <Route path="/" element={<Home />} /> 
-                    <Route path="/profile" element={<Profile />} /> 
+                    <Route path="/profile" element={<PrivateRoute />} >
+                        <Route path="/profile" element={<Profile />} /> 
+                    </Route>
                     <Route path="/sign-in" element={<SignIn />} /> 
                     <Route path="/sign-up" element={<SignUp />} /> 
                     <Route path="/forgot-password" element={<ForgotPassword />} /> 
