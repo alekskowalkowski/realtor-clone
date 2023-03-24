@@ -1,3 +1,5 @@
+import { Spinner } from "../components";
+
 const Home = () => {
     return (
         <div>
